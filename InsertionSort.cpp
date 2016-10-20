@@ -27,6 +27,4 @@ int main(){
 	int arr[] = {4,6,3,7,5,9,2,8,1,10};
 	int length= sizeof(arr)/sizeof(arr[0]);
 	insertion_sort(arr,length);
-
-	
 }

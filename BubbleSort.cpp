@@ -28,6 +28,5 @@ int main(){
 	int length= sizeof(arr)/sizeof(arr[0]);
 	print_array(arr,length);
 	bubble_sort(arr,length);
-
 	return 0;
 }

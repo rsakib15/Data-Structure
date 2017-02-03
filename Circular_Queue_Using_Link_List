@@ -1,0 +1,93 @@
+#include <iostream>
+using namespace std;
+ 
+struct node_data{
+    int data;
+    struct node_data *next;
+};
+ 
+struct node_data *front=NULL,*rear=NULL,*np,*ptr,*ptr2;
+ 
+int isempty(){
+    if(front==NULL && rear==NULL)
+        return 1;
+    else
+        return 0;
+}
+ 
+void enqueue(int x){
+    np=new node_data;
+    np->data=x;
+    np->next=NULL;
+    if(isempty()){
+        front=np;
+        rear=np;
+    }
+    else{
+        rear->next=np;
+        rear=np;
+    }
+    rear->next=front;
+}
+ 
+int dequeue(){
+    ptr=front;
+    if(isempty())
+        cout<<"Circular Queue is Empty"<<endl;
+ 
+    if(front==rear){
+        front=NULL;
+        rear=NULL;
+    }
+    else{
+        front=front->next;
+        rear->next=front;
+    }
+    delete ptr;
+}
+ 
+ 
+int Front(){
+    cout<<"Front Element: ";
+    if(front == NULL){
+		cout<<"Circular Queue is Empty"<<endl;
+    }
+	else
+        cout<<front->data<<endl;
+}
+ 
+ 
+void print(){
+    ptr=front;
+    ptr2=NULL;
+    if(isempty())
+        cout<<"Circular Queue is Empty";
+    else{
+        while(ptr!=ptr2){
+            cout<<ptr->data<<" ";
+            ptr=ptr->next;
+            ptr2=front;
+    }
+    }
+}
+ 
+ 
+int main(){
+    int n,num;
+    cout<<"How many Elements You want to enter: ";
+    cin>>n;
+    for(int i=0;i<n;i++){
+        cin>>num;
+        enqueue(num);
+    }
+    cout<<"Circular Queue Elements:" ;
+    print();
+    cout<<endl;
+    Front();
+    dequeue();
+    dequeue();
+    cout<<"Circular Queue Elements:" ;
+    print();
+    cout<<endl;
+    Front();
+}

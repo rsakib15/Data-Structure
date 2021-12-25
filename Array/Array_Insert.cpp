@@ -35,10 +35,8 @@ int main(){
  
     cout<<"After Insertion "<<endl;
     cout<<"Total Elements: "<<n<<endl;
-     for(i=0;i<n;i++)
-        cout<<arr[i]<<" ";
+    
+    for(i=0;i<n;i++) cout<<arr[i]<<" ";
     cout<<endl;
- 
- 
 }
  
